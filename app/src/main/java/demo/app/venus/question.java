@@ -5,6 +5,7 @@ import static demo.app.venus.quiz.listOfQ;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +15,7 @@ import android.widget.TextView;
 import java.util.Collections;
 import java.util.List;
 
-public class question extends AppCompatActivity {
+public class question extends Activity {
     List<questionlist> allQuestionList;
     questionlist questionlist;
     int index = 0;

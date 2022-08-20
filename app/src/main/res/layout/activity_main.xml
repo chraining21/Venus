@@ -55,5 +55,5 @@ tools:context=".MainActivity">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appname"
         app:layout_constraintVertical_bias="0.35"
-        tools:ignore="UsingOnClickInXml,TextContrastCheck,TextContrastCheck" />
+        tools:ignore="UsingOnClickInXml" />
 </androidx.constraintlayout.widget.ConstraintLayout>
