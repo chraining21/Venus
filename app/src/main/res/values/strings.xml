@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Venus</string>
+    <string name="venus">VENUS</string>
+    <string name="start">開始</string>
+    <string name="todo">TODO</string>
+    <string name="t">起床用微溫水及偏中性的洗面乳洗完臉後，若中午感覺油膩屬於油性肌膚，下午感覺微油屬於正常肌膚，下午覺得皮膚很乾屬乾性肌膚，如果T字部位很油但眼角乾澀有小細紋則屬混合型肌膚。 若是兩頰容易泛紅而微血管清晰可見﹐肌膚容易因外在環境變化或使用化妝保養品而出現紅､熱､刺､癢的反應﹐就屬敏感性膚質。</string>
+    <string name="title">_ 膚 質 檢 測 _</string>
+    <string name="littletitle">目 視 法</string>
+    <string name="starttext">開始</string>
+    <string name="todobg">TODO</string>
+    <string name="a">A</string>
+    <string name="d">D</string>
+    <string name="nextto">下一題</string>
+    <string name="c">C</string>
+    <string name="b">B</string>
+    <string name="textbg">TODO</string>
+    <string name="titleresult">_ 檢 測 結 果 _</string>
+    <string name="resulttext">油性肌膚</string>
+    <string name="resultmun">25/25</string>
+    <string name="endtest">結束</string>
+    <string name="todoresultpng">TODO</string>
+    <string name="todoresultbg">TODO</string>
 </resources>
