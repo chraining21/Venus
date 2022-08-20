@@ -1,5 +1,6 @@
 package demo.app.venus.models;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -11,19 +12,23 @@ import java.util.Date;
 @Entity(tableName = "products")
 public class Products implements Serializable {
     @PrimaryKey
-    String productName = "";
+    @NonNull
+    String productName = "exampleName";
 
+    @NonNull
     @ColumnInfo(name = "exp")
-    Long expDate = null;
+    String expDate = "exampleName";
 
+    @NonNull
     @ColumnInfo(name = "ingredients")
-    String ingreJson ="";
+    String ingreJson ="exampleJson";
 
     /*
     0 is none
     1 is honey
     2 is toxic
      */
+    @NonNull
     @ColumnInfo(name = "kind")
     int kind = 0;
 
@@ -36,14 +41,11 @@ public class Products implements Serializable {
     }
 
     public String getExpDate() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = new Date(expDate*1000);
-        String str = dateFormat.format(date);
-        return str;
+        return expDate;
     }
 
-    public void setExpDate(Date expDate) {
-        this.expDate = expDate.getTime();
+    public void setExpDate(String  expDate) {
+        this.expDate = expDate;
     }
 
     public String getIngreJson() {

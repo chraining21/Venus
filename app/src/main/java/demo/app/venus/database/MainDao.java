@@ -15,7 +15,7 @@ public interface MainDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Products p);
 
-    @Query("SELECT * FROM products")
+    @Query("SELECT * FROM Products")
     List<Products> getAll();
 
     @Delete

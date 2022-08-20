@@ -48,15 +48,6 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductsViewHolder>
                 listener.onClick(list.get(holder.getAdapterPosition()));
             }
         });
-
-        holder.products_container.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View view) {
-                listener.onLongClick(list.get(holder.getAdapterPosition()), holder.products_container);
-                return true;
-
-            }
-        });
     }
 
     @Override
