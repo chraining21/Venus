@@ -1,11 +1,11 @@
 package demo.app.venus;
 
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -54,6 +54,9 @@ public class testresult extends Activity {
 
     }
 
-
+    public void test_end(View view){
+        Intent intent = new Intent(this,SettingActivity.class);
+        startActivity(intent);
+    }
 
 }

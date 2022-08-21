@@ -4,11 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_home.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_list.xml" value="0.12335359675785208" />
         <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_question.xml" value="0.2289156626506024" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_quiz.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_question.xml" value="0.152" />
+        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_quiz.xml" value="0.1" />
+        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_setting.xml" value="0.1" />
         <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_testresult.xml" value="0.25364583333333335" />
         <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_upload.xml" value="0.2" />
+        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_user_guide.xml" value="0.12335359675785208" />
       </map>
     </option>
   </component>

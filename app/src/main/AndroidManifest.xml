@@ -19,7 +19,6 @@
             android:name=".upload"
             android:exported="false" />
         <activity
-            android:name=".upload"
             android:name=".ListActivity"
             android:exported="false" />
         <activity

@@ -1,15 +1,15 @@
 package demo.app.venus;
 
 import static demo.app.venus.quiz.listOfQ;
-
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.Collections;
@@ -34,10 +34,11 @@ public class question extends Activity {
         Collections.shuffle(allQuestionList);
         questionlist = listOfQ.get(index);
 
-        card_optiona.setBackgroundColor(getResources().getColor(R.color.yellow));
-        card_optionb.setBackgroundColor(getResources().getColor(R.color.yellow));
-        card_optionc.setBackgroundColor(getResources().getColor(R.color.yellow));
-        card_optiond.setBackgroundColor(getResources().getColor(R.color.yellow));
+//        card_optiona.setBackgroundColor(getResources().getColor(R.color.green));
+//        card_optionb.setBackgroundColor(getResources().getColor(R.color.yellow));
+//        card_optionc.setBackgroundColor(getResources().getColor(R.color.yellow));
+        card_optiond.setBackgroundColor(ContextCompat.getColor(question.this,R.color.green));
+        enableButton();
         Selected();
         nextBtn.setClickable(false);
 
@@ -99,14 +100,19 @@ public class question extends Activity {
         }
         else {
             result();
-            resetColor();
+        //    resetColor();
         }
     }
 
     private void result() {
-        Intent intent = new Intent(question.this,testresult.class);
-        intent.putExtra("result",count);
-        startActivity(intent);
+
+
+
+        ((RelativeLayout)findViewById(R.id.scanLayout)).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v){
+                startActivityForResult(new Intent(question.this,testresult.class),0);
+            }
+        });
     }
 
     public void enableButton(){
@@ -123,15 +129,16 @@ public class question extends Activity {
 //        card_optiond.setClickable(false);
 //    }
 
-    public void resetColor(){
-        card_optiona.setBackgroundColor(getResources().getColor(R.color.yellow));
-        card_optionb.setBackgroundColor(getResources().getColor(R.color.yellow));
-        card_optionc.setBackgroundColor(getResources().getColor(R.color.yellow));
-        card_optiond.setBackgroundColor(getResources().getColor(R.color.yellow));
+//    public void resetColor(){
+//        card_optiona.setBackgroundColor(getResources().getColor(R.color.yellow));
+//        card_optionb.setBackgroundColor(getResources().getColor(R.color.yellow));
+//        card_optionc.setBackgroundColor(getResources().getColor(R.color.yellow));
+//        card_optiond.setBackgroundColor(getResources().getColor(R.color.yellow));
+//
+//    }
 
-    }
     public void OptClick(View view){
-        nextBtn.setClickable(true);
+
         if(card_optiona.hasOnClickListeners()){
             card_optiona.setBackgroundColor(getResources().getColor(R.color.green));
         }else if(card_optionb.hasOnClickListeners()){
@@ -142,6 +149,7 @@ public class question extends Activity {
         }else {
             card_optiond.setBackgroundColor(getResources().getColor(R.color.green));
         }
+        nextBtn.setClickable(true);
 //        disableButton();
     }
 }
