@@ -16,11 +16,13 @@
         android:theme="@style/Theme.Venus"
         tools:targetApi="31">
         <activity
-
             android:name=".ProductDtlActivity"
             android:exported="false" />
         <activity
             android:name=".TestDbActivity"
+	    android:exported="false" />
+ 	    <activity
+            android:name=".ListActivity"
             android:exported="false" />
         <activity
             android:name=".UserGuideActivity"
@@ -37,6 +39,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".quiz" />
+        <activity android:name=".question" />
+        <activity android:name=".testresult" />
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

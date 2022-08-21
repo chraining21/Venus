@@ -71,7 +71,7 @@
         android:layout_width="275dp"
         android:layout_height="65dp"
         android:backgroundTint="#947EBE"
-        android:onClick="testend"
+        android:onClick="test_end"
         android:text="@string/endtest"
         android:textAlignment="center"
         android:textColor="#000000"
