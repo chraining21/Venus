@@ -12,7 +12,6 @@
         android:layout_height="120dp"
         android:background="#947EBE"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,56 +24,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Topview1" />
 
-
-    <!--    <Button-->
-    <!--        android:id="@+id/skinTest"-->
-    <!--        android:layout_width="300dp"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:backgroundTint="#947EBE"-->
-    <!--        android:text="膚質檢測"-->
-    <!--        android:textColor="#000000"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/waveView" />-->
-
-    <!--    <Button-->
-    <!--        android:id="@+id/userGuideView"-->
-    <!--        android:layout_width="300dp"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="16dp"-->
-    <!--        android:backgroundTint="#947EBE"-->
-    <!--        android:text="使用說明"-->
-    <!--        android:textColor="#000000"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/skinTest" />-->
-
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="154dp"
-        android:layout_height="126dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="168dp"
+        android:layout_height="135dp"
+        android:layout_alignParentTop="true"
+
         android:contentDescription="@string/todo"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/venus"
-        tools:ignore="ImageContrastCheck" />
+        app:srcCompat="@drawable/logo" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="172dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="24dp"
-        android:text="@string/have_a_nice_day_with_venus"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextContrastCheck" />
 
 
     <RelativeLayout
@@ -86,7 +47,6 @@
         android:background="@drawable/yellow_bk"
         android:clickable="true"
         android:focusable="true"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/waveView">
@@ -160,7 +120,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/relativeLayout"
+        android:id="@+id/skinTestLayout"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="24dp"
@@ -210,7 +170,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout"
+        app:layout_constraintTop_toBottomOf="@+id/skinTestLayout"
         android:clickable="true"
         android:focusable="true">
 
@@ -238,6 +198,20 @@
             android:contentDescription="@string/userGuideIcon"
             android:src="@drawable/userguide_icon" />
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="172dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/have_a_nice_day_with_venus"
+        android:textColor="#000000"
+        android:textSize="20sp"
+
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextContrastCheck"
+        tools:layout_editor_absoluteX="198dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
