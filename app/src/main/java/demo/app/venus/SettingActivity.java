@@ -24,7 +24,7 @@ public class SettingActivity extends Activity {
         //觸發'分析成分'
         ((RelativeLayout)findViewById(R.id.scanLayout)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                startActivityForResult(new Intent(SettingActivity.this,ListActivity.class), 0);
+                startActivityForResult(new Intent(SettingActivity.this,upload.class), 0);
             }
         });
         //觸發'膚質測驗'
