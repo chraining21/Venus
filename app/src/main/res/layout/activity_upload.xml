@@ -21,7 +21,7 @@
         android:layout_marginTop="100sp" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView_pic"
         android:layout_width="265dp"
         android:layout_height="274dp"
         android:scaleType="fitXY"
@@ -30,7 +30,7 @@
         tools:src="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/pickimage"
+        android:id="@+id/button_selectpic"
         android:layout_width="255sp"
         android:layout_height="60sp"
         android:backgroundTint="#947EBE"
@@ -43,7 +43,7 @@
         app:cornerRadius="100sp" />
 
     <Button
-        android:id="@+id/uploadimage"
+        android:id="@+id/uploadButton"
         android:layout_width="255sp"
         android:layout_height="60sp"
         android:backgroundTint="#947EBE"
@@ -54,6 +54,12 @@
         android:textSize="20sp"
         android:textStyle="bold"
         app:cornerRadius="100sp" />
+
+    <TextView
+        android:id="@+id/lblmessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </TextView>
 
 
 </LinearLayout>
