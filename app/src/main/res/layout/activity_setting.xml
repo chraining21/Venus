@@ -4,14 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingActivity"
-    tools:ignore="MissingConstraints">
-
+    tools:context=".SettingActivity">
 
     <View
-        android:id="@+id/Topview"
+        android:id="@+id/Topview1"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="120dp"
         android:background="#947EBE"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,56 +22,196 @@
         android:background="@drawable/ic_wave"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Topview" />
+        app:layout_constraintTop_toBottomOf="@+id/Topview1" />
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:contentDescription="TODO"
-        app:layout_constraintStart_toStartOf="@+id/Topview"
+        android:layout_width="168dp"
+        android:layout_height="135dp"
+        android:layout_alignParentTop="true"
+
+        android:contentDescription="@string/todo"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/venus" />
+        app:srcCompat="@drawable/logo" />
+
+
+
+    <RelativeLayout
+        android:id="@+id/listLayout"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/yellow_bk"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/waveView">
+
+        <TextView
+            android:layout_width="164dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="153dp"
+            android:padding="25dp"
+            android:text="@string/list"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="85dp"
+            android:layout_height="79dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="21dp"
+            android:contentDescription="@string/list_icon"
+            android:src="@drawable/list_icon"
+            tools:ignore="ImageContrastCheck" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/scanLayout"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/blue_bk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listLayout"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="170dp"
+            android:padding="25dp"
+            android:text="@string/scan"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="-14dp"
+            android:contentDescription="@string/lala"
+            android:src="@drawable/venus" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/skinTestLayout"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/yellow_bk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scanLayout"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="170dp"
+            android:padding="25dp"
+            android:text="@string/skinTest"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="-16dp"
+            android:contentDescription="@string/userGuideIcon"
+            android:src="@drawable/venus" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/userGuideLayout"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/blue_bk"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/skinTestLayout"
+        android:clickable="true"
+        android:focusable="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginEnd="170dp"
+            android:padding="25dp"
+            android:text="@string/userGuide"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:layout_width="107dp"
+            android:layout_height="80dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="-1dp"
+            android:contentDescription="@string/userGuideIcon"
+            android:src="@drawable/userguide_icon" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="20dp"
-        android:text="Have A Nice Day With Venus"
+        android:layout_width="172dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="48dp"
+        android:text="@string/have_a_nice_day_with_venus"
         android:textColor="#000000"
         android:textSize="20sp"
+
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/Topview"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="TextContrastCheck" />
+        tools:ignore="TextContrastCheck"
+        tools:layout_editor_absoluteX="198dp" />
 
-    <Button
-        android:id="@+id/skinTest"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#947EBE"
-        android:text="膚質檢測"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/waveView" />
-
-    <Button
-        android:id="@+id/userGuideView"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#947EBE"
-        android:text="使用說明"
-        android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/skinTest" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

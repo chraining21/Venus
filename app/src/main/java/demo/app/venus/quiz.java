@@ -33,8 +33,8 @@ public class quiz extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void testend(View view){
-        Intent intent = new Intent(this,MainActivity.class);
+    public void test_end(View view){
+        Intent intent = new Intent(this,SettingActivity.class);
         startActivity(intent);
     }
 }
