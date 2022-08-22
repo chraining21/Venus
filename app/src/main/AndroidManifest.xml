@@ -16,6 +16,10 @@
         android:theme="@style/Theme.Venus"
         tools:targetApi="31">
         <activity
+            android:name=".ItemsCreaterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Venus.NoActionBar"/>
+        <activity
             android:name=".ListActivity"
             android:exported="false" />
         <activity
@@ -36,6 +40,7 @@
         <activity android:name=".quiz" />
         <activity android:name=".question" />
         <activity android:name=".testresult" />
+        <activity android:name=".uploadActivity" />
     </application>
 
 </manifest>

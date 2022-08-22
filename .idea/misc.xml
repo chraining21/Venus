@@ -3,18 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_list.xml" value="0.1351004702864472" />
+        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/drawable/next_btn_shape.xml" value="0.1845" />
+        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/drawable/round_bk.xml" value="0.1845" />
+        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_items_creater.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_items_taker.xml" value="0.1470713980333476" />
+        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_list.xml" value="0.1598173515981735" />
         <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_question.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_quiz.xml" value="0.11949685534591195" />
         <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_setting.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_testresult.xml" value="0.14074074074074075" />
+        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_upload.xml" value="0.1470713980333476" />
         <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_user_guide.xml" value="0.1322463768115942" />
         <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/fragment_setting.xml" value="0.1" />
+        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/item_list.xml" value="0.1470713980333476" />
+        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/items_list.xml" value="0.1470713980333476" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
