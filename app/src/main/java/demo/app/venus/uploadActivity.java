@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.ui.AppBarConfiguration;
 
 import java.io.File;
 
@@ -75,12 +75,20 @@ public class uploadActivity extends AppCompatActivity {
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
+                if (response.isSuccessful()) {
+
+                    if (response.body().toString().equals("200")) {
+                        Toast.makeText(getApplicationContext(), "已上傳照片", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "上傳失敗", Toast.LENGTH_SHORT).show();
+                    }
+                }
 
             }
 
             @Override
             public void onFailure(Call call, Throwable t) {
-
+                Toast.makeText(getApplicationContext(), t.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
