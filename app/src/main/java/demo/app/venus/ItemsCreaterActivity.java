@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 
@@ -19,14 +22,33 @@ public class ItemsCreaterActivity extends AppCompatActivity {
     Items items;
     boolean isOldNote = false;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_items_creater);
 
+
         imageView_save = findViewById(R.id.imageView_save);
         editText_title = findViewById(R.id.editText_title);
         editText_notes = findViewById(R.id.editText_notes);
+
+
+        items = new Items();
+        try{
+            items = (Items) getIntent().getSerializableExtra("old_note");
+            editText_title.setText(items.getTitle());
+            editText_notes.setText(items.getNotes());
+//            cat_group.setCategory(items.getCategory());
+
+            isOldNote = true;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
 
         imageView_save.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +69,7 @@ public class ItemsCreaterActivity extends AppCompatActivity {
 
                 items.setTitle(title);
                 items.setNotes(description);
-//                items.setDate(formatter.format(date));
+//               items.setDate(formatter.format(date));
 
                 Intent intent  = new Intent();
                 intent.putExtra("item",items);

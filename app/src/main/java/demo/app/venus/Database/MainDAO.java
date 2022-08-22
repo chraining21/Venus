@@ -15,7 +15,7 @@ import demo.app.venus.Models.Items;
 @Dao
 public interface MainDAO {
     @Insert(onConflict = REPLACE)
-    void insert(Items notes);
+    void insert(Items items);
 
     @Query("SELECT * FROM items ORDER BY id DESC")
     List<Items> getAll();
@@ -24,5 +24,5 @@ public interface MainDAO {
     void update(int id, String title, String notes);
 
     @Delete
-    void delete(Items notes);
+    void delete(Items items);
 }

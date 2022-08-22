@@ -55,6 +55,7 @@
         android:textStyle="normal" />
 
     <RadioGroup
+        android:id="@+id/cat_group"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
