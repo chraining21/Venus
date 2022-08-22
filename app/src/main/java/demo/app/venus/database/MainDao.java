@@ -8,13 +8,13 @@ import androidx.room.Query;
 
 import java.util.List;
 
-import demo.app.venus.models.Products;
-
 @Dao
 public interface MainDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insert(Products p);
 
+    @Query("SELECT productName FROM Products WHERE productName= :name")
+    List<String> getName(String name);
     @Query("SELECT * FROM Products")
     List<Products> getAll();
 

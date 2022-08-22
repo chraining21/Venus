@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -15,14 +14,14 @@ import java.util.ArrayList;
 import java.util.List;
 import demo.app.venus.adapter.ProductListAdapter;
 import demo.app.venus.database.RoomDB;
-import demo.app.venus.models.Products;
+import demo.app.venus.database.Products;
 
 public class TestDbActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ProductListAdapter pListAdapter;
     List<Products> products = new ArrayList<>();
     RoomDB database;
-    FloatingActionButton fab_add;
+    FloatingActionButton fab_add,refresh;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,13 +30,19 @@ public class TestDbActivity extends AppCompatActivity {
         fab_add = findViewById(R.id.floatingButton);
         database = RoomDB.getInstance(this);
         products = database.mainDao().getAll();
-
+        refresh = findViewById(R.id.floatingButton2);
         updateRecycler(products);
         fab_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(TestDbActivity.this, ProductDtlActivity.class);
                 startActivity(intent);
+            }
+        });
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateRecycler(products);
             }
         });
     }

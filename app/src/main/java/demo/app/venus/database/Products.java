@@ -1,36 +1,48 @@
-package demo.app.venus.models;
+package demo.app.venus.database;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Entity(tableName = "products")
+@Entity(tableName = "Products")
 public class Products implements Serializable {
     @PrimaryKey
     @NonNull
-    String productName = "exampleName";
+    String productName;
 
-    @NonNull
     @ColumnInfo(name = "exp")
-    String expDate = "exampleName";
+    String expDate;
 
-    @NonNull
     @ColumnInfo(name = "ingredients")
-    String ingreJson ="exampleJson";
+    String ingreJson;
 
     /*
     0 is none
     1 is honey
     2 is toxic
      */
-    @NonNull
     @ColumnInfo(name = "kind")
-    int kind = 0;
+    int kind;
+
+    public Products() {
+        this.productName = "";
+        this.expDate = "";
+        this.ingreJson = "";
+        this.kind = 0;
+    }
+    @Ignore
+    public Products(String productName, String expDate, String ingreJson,int kind) {
+        this.productName = productName;
+        this.expDate = expDate;
+        this.ingreJson = ingreJson;
+        this.kind = kind;
+    }
 
     public String getProductName() {
         return productName;
@@ -44,7 +56,7 @@ public class Products implements Serializable {
         return expDate;
     }
 
-    public void setExpDate(String  expDate) {
+    public void setExpDate(String expDate) {
         this.expDate = expDate;
     }
 

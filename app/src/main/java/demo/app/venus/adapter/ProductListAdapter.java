@@ -14,7 +14,7 @@ import java.util.List;
 
 import demo.app.venus.ProductsClickListener;
 import demo.app.venus.R;
-import demo.app.venus.models.Products;
+import demo.app.venus.database.Products;
 
 
 public class ProductListAdapter extends RecyclerView.Adapter<ProductsViewHolder> {
