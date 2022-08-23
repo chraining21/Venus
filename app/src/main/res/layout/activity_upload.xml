@@ -1,65 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
-    android:orientation="vertical"
-    tools:context=".upload">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="200sp"
-        android:layout_height="30sp"
-        android:text="選擇產品成分照片"
-        android:textAlignment="center"
-        android:layout_gravity="center"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:layout_marginTop="100sp" />
+    tools:context=".MainActivity">
 
     <ImageView
-        android:id="@+id/imageView_pic"
-        android:layout_width="265dp"
-        android:layout_height="274dp"
-        android:scaleType="fitXY"
-        android:layout_gravity="center"
-        android:layout_marginVertical="20sp"
-        tools:src="@tools:sample/avatars" />
+        android:id="@+id/uploadimage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginVertical="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/selectImagebtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/button_selectpic"
-        android:layout_width="255sp"
-        android:layout_height="60sp"
+        android:id="@+id/selectImagebtn"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="32dp"
         android:backgroundTint="#947EBE"
-        android:layout_gravity="center"
-        android:layout_marginVertical="10sp"
         android:text="選擇照片"
-        android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textColor="#000000"
+        android:textSize="16dp"
         android:textStyle="bold"
-        app:cornerRadius="100sp" />
+        app:layout_constraintBottom_toTopOf="@+id/uploadimagebtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/uploadButton"
-        android:layout_width="255sp"
-        android:layout_height="60sp"
+        android:id="@+id/uploadimagebtn"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="168dp"
         android:backgroundTint="#947EBE"
-        android:layout_gravity="center"
-        android:layout_marginVertical="10sp"
         android:text="上傳照片"
-        android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textColor="#000000"
+        android:textSize="16dp"
         android:textStyle="bold"
-        app:cornerRadius="100sp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/lblmessage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </TextView>
-
-
-</LinearLayout>
