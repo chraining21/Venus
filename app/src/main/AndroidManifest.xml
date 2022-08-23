@@ -22,6 +22,9 @@
             android:name=".ProductDtlActivity"
             android:exported="false" />
         <activity
+            android:name=".ProductDtlEditActivity"
+            android:exported="false" />
+        <activity
             android:name=".TestDbActivity"
 	    android:exported="false" />
  	    <activity

@@ -7,38 +7,42 @@
     android:id="@+id/products_container"
     app:cardCornerRadius="8dp"
     app:cardElevation="8dp"
-    android:layout_margin="8dp">
+    android:layout_margin="15dp">
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp">
         <TextView
-            android:id="@+id/textView_productName"
-            android:text="Title"
-            android:layout_alignParentStart="true"
-            android:textSize="18sp"
-            android:textColor="@color/black"
+            android:id="@+id/brandName"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="理膚寶水"
+            android:textSize="30dp"
             android:textStyle="bold"
-            android:padding="8dp"
-            android:singleLine="true"
-            android:ellipsize="marquee"
-            android:marqueeRepeatLimit="marquee_forever"
-            android:scrollHorizontally="true"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:textColor="@color/white"
+            android:background="@color/purple_700"/>
+        <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/pname"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="保濕乳液"
+                android:textSize="25dp"/>
 
-        <TextView
-            android:id="@+id/textView_date"
-            android:text="Date"
-            android:textColor="@color/black"
-            android:singleLine="true"
-            android:textSize="14sp"
-            android:textStyle="normal"
-            android:maxLines="10"
-            android:padding="8dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/pExp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="2022/05/13"
+                android:textSize="20dp"
+                ></TextView>
+        </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
