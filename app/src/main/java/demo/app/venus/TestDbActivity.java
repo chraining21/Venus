@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import demo.app.venus.database.Database;
 import demo.app.venus.database.Products;
 /*DBclassproductList
-* 可將setting的按鈕連至這個activity
 * 應該不用動 拿掉floatingButton及更改xml(請記得id)即可
 *
 * 希望可以拿掉appbar 變成toolbar(只有在dtl相關頁面可以看見bar)
