@@ -108,10 +108,10 @@ public class TestDbActivity extends AppCompatActivity {
             holder.pExp.setText(arrayList.get(position).getExpdate());
 
             holder.mView.setOnClickListener((v)->{
-                Intent intent = new Intent(TestDbActivity.this,TestDbActivity.class);
+                Intent intent = new Intent(TestDbActivity.this,ProductDtlActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("product",arrayList.get(position));
-                intent.putExtra("bundle_product",bundle);
+                bundle.putSerializable("result",arrayList.get(position));
+                intent.putExtras(bundle);
                 startActivity(intent);
             });
         }
