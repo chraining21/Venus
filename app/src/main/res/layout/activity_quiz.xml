@@ -72,6 +72,15 @@
 
     </androidx.cardview.widget.CardView>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="本測驗來源"
+        android:textColor="#8A8E98"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
     <ImageView
         android:id="@+id/dottedbg"
         android:layout_width="match_parent"

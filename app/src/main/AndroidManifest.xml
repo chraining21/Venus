@@ -16,11 +16,25 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Venus"
         tools:targetApi="31">
+	<activity
+            android:name=".upload"
+            android:exported="false" />
         <activity
+            android:name=".ProductDtlActivity"
+            android:exported="false" />
+        <activity
+
             android:name=".ItemsCreaterActivity"
             android:exported="false"
             android:theme="@style/Theme.Venus.NoActionBar"/>
         <activity
+            android:name=".ProductDtlEditActivity"
+            android:exported="false" />
+        <activity
+            android:name=".TestDbActivity"
+	    android:exported="false" />
+ 	    <activity
+
             android:name=".ListActivity"
             android:exported="false" />
         <activity
@@ -43,5 +57,5 @@
         <activity android:name=".testresult" />
         <activity android:name=".uploadActivity" />
     </application>
-
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
