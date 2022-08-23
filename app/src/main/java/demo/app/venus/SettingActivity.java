@@ -18,7 +18,7 @@ public class SettingActivity extends Activity {
         //觸發'產品清單'
         ((RelativeLayout)findViewById(R.id.listLayout)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                        startActivityForResult(new Intent(SettingActivity.this,ListActivity.class), 0);
+                        startActivityForResult(new Intent(SettingActivity.this,TestDbActivity.class), 0);
             }
         });
         //觸發'分析成分'
