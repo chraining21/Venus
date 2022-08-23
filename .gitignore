@@ -19,7 +19,6 @@ gen/
 # Local configuration file (sdk path, etc)
 local.properties
 
-
 # Windows thumbnail db
 Thumbs.db
 
@@ -57,3 +56,5 @@ build/
 .idea/scopes/scope_settings.xml
 .idea/vcs.xml
 *.iml
+
+
