@@ -22,7 +22,7 @@ public class SettingActivity extends Activity {
             }
         });
         //觸發'分析成分'
-        /*
+
         ((RelativeLayout)findViewById(R.id.scanLayout)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
 
@@ -30,7 +30,7 @@ public class SettingActivity extends Activity {
 
             }
         });
-         */
+
         //觸發'膚質測驗'
         ((RelativeLayout)findViewById(R.id.skinTestLayout)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){

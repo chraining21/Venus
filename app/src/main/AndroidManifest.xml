@@ -34,7 +34,6 @@
             android:name=".TestDbActivity"
 	    android:exported="false" />
  	    <activity
-
             android:name=".ListActivity"
             android:exported="false" />
         <activity
@@ -55,7 +54,9 @@
         <activity android:name=".quiz" />
         <activity android:name=".question" />
         <activity android:name=".testresult" />
-        <activity android:name=".uploadActivity" />
+        <activity android:name=".uploadActivity"
+            android:exported="false"
+            />
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
