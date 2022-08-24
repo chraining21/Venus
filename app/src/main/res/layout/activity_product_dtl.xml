@@ -34,13 +34,14 @@
             android:textColor="@color/black"
             android:textStyle="bold"/>
 
-        <ImageView
-            android:id="@+id/imageView3"
+        <Button
+            android:id="@+id/editbutton"
             android:layout_width="30sp"
             android:layout_height="30sp"
-            android:layout_marginTop="15sp"
-            android:layout_marginStart="250sp"
-            app:srcCompat="@drawable/pencil"/>
+            android:layout_marginStart="220sp"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/pencil"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 
     </LinearLayout>
