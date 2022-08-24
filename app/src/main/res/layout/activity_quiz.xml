@@ -20,18 +20,17 @@
         android:textStyle="bold" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="396dp"
-        android:layout_height="302dp"
+        android:layout_width="395dp"
+        android:layout_height="180dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         app:cardBackgroundColor="#F7F9BF"
         app:cardCornerRadius="8dp"
-        app:cardElevation="5dp"
-        >
+        app:cardElevation="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="180dp"
             android:orientation="vertical"
             android:padding="16dp">
 
@@ -39,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/littletitle"
+                android:text="本測驗出處與作者"
                 android:textColor="#363A43"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -48,7 +47,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/t"
+                android:text="https://yanjiskin.pixnet.net/blog/post/229203863  \n    皮膚科 劉權毅 醫師"
                 android:textColor="#7A8089"
                 android:textSize="16sp"
                 android:textStyle="bold" />
@@ -72,23 +71,16 @@
 
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="本測驗來源"
-        android:textColor="#8A8E98"
-        android:textSize="16sp"
-        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/dottedbg"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="130sp"
         android:contentDescription="@string/todobg"
-        android:translationY="120dp"
+        android:translationY="110sp"
         app:srcCompat="@drawable/dottedbg"
-        tools:ignore="ImageContrastCheck" />
+        tools:ignore="ImageContrastCheck"
+        />
 
 
 </LinearLayout>

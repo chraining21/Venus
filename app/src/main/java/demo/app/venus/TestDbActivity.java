@@ -17,7 +17,6 @@ import java.util.ArrayList;
 import demo.app.venus.database.Database;
 import demo.app.venus.database.Products;
 /*DBclassproductList
-* 可將setting的按鈕連至這個activity
 * 應該不用動 拿掉floatingButton及更改xml(請記得id)即可
 *
 * 希望可以拿掉appbar 變成toolbar(只有在dtl相關頁面可以看見bar)
@@ -108,10 +107,10 @@ public class TestDbActivity extends AppCompatActivity {
             holder.pExp.setText(arrayList.get(position).getExpdate());
 
             holder.mView.setOnClickListener((v)->{
-                Intent intent = new Intent(TestDbActivity.this,TestDbActivity.class);
+                Intent intent = new Intent(TestDbActivity.this,ProductDtlActivity.class);
                 Bundle bundle = new Bundle();
-                bundle.putSerializable("product",arrayList.get(position));
-                intent.putExtra("bundle_product",bundle);
+                bundle.putSerializable("result",arrayList.get(position));
+                intent.putExtras(bundle);
                 startActivity(intent);
             });
         }

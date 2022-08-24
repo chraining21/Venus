@@ -20,12 +20,12 @@ public class ProductDtlActivity extends AppCompatActivity {
     TextView pName;
     TextView exp;
     Database database;
-    Bundle bundle = getIntent().getBundleExtra("bundle_product");
-    Products p = (Products) bundle.getSerializable("product");
+    Products p;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_dtl);
+        p = (Products) getIntent().getSerializableExtra("result");
         bName = findViewById(R.id.bname);
         pName = findViewById(R.id.pname);
         exp = findViewById(R.id.pexp);
