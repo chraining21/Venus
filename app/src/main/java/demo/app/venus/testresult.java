@@ -1,22 +1,20 @@
 package demo.app.venus;
 
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class testresult extends Activity {
-
-
     ImageView resultpng;
     TextView resulttext;
     TextView resultnum;
-    int result;
 
+    int result;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -26,9 +24,10 @@ public class testresult extends Activity {
 
         result = getIntent().getIntExtra("result",0);
 
-        resultpng = findViewById(R.id.resultpng);
-        resulttext = findViewById(R.id.resulttext);
-        resultnum = findViewById(R.id.resultnum);
+
+        resultpng = (ImageView)findViewById(R.id.resultpng);
+        resulttext = (TextView)findViewById(R.id.resulttext);
+        resultnum =  (TextView)findViewById(R.id.resultnum);
 
         resultnum.setText(result+"/25");
 
@@ -43,20 +42,19 @@ public class testresult extends Activity {
         }
 
         if(result<=10){
-            resultpng.setImageResource(Integer.parseInt("@drawable/dry"));
+            resultpng.setImageDrawable(getResources().getDrawable(R.drawable.dry));
         } else if(result<=14){
-            resultpng.setImageResource(Integer.parseInt("@drawable/neutral"));
+            resultpng.setImageDrawable(getResources().getDrawable(R.drawable.neutral));
         } else if(result<=20){
-            resultpng.setImageResource(Integer.parseInt("@drawable/combination"));
+            resultpng.setImageDrawable(getResources().getDrawable(R.drawable.combination));
         } else{
-            resultpng.setImageResource(Integer.parseInt("@drawable/oily"));
+            resultpng.setImageDrawable(getResources().getDrawable(R.drawable.oily));
         }
 
+        ((Button) findViewById(R.id.btn_testend)).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v){
+                startActivityForResult(new Intent(testresult.this,SettingActivity.class),0);
+            }
+        });
     }
-
-    public void test_end(View view){
-        Intent intent = new Intent(this,SettingActivity.class);
-        startActivity(intent);
-    }
-
 }

@@ -1,26 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".question">
+    tools:context=".question"
+    android:orientation="vertical"
+    >
 
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_question"
-        android:layout_width="350dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="112dp"
         android:layout_marginTop="80dp"
         android:layout_marginBottom="15dp"
         android:backgroundTint="#FFFFFF"
         app:cardCornerRadius="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/card_optiona"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        >
 
         <TextView
             android:id="@+id/text_question"
@@ -29,23 +26,24 @@
             android:layout_gravity="center"
             android:text="@string/app_name"
             android:textColor="@color/black">
+
         </TextView>
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:onClick="OptClick"
+        android:drawable="@color/green"
+        android:state_pressed="true"
         android:id="@+id/card_optiona"
-        android:layout_width="250dp"
-        android:layout_height="55dp"
-        android:backgroundTint="#F7F9BF"
-        app:cardCornerRadius="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35"
-        tools:ignore="UsingOnClickInXml">
+        android:layout_width="250sp"
+        android:layout_height="55sp"
+        android:onClick="OptClicka"
+        app:cardCornerRadius="100sp"
+        tools:ignore="UsingOnClickInXml"
+        android:translationY="25sp"
+        android:layout_gravity="center"
+        android:focusable="true"
+        android:clickable="true">
+
 
         <TextView
             android:id="@+id/text_optiona"
@@ -60,19 +58,17 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:onClick="OptClick"
         android:id="@+id/card_optionb"
-        android:layout_width="250dp"
-        android:layout_height="55dp"
-        android:backgroundTint="#F7F9BF"
-        app:cardCornerRadius="100dp"
-        app:layout_constraintBottom_toBottomOf="@+id/bg1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45"
-        tools:ignore="UsingOnClickInXml">
+        android:layout_width="250sp"
+        android:layout_height="55sp"
+        android:onClick="OptClickb"
+        app:cardCornerRadius="100sp"
+        tools:ignore="UsingOnClickInXml"
+        android:translationY="40sp"
+        android:layout_gravity="center"
+        android:focusable="true"
+        android:clickable="true"
+        >
 
         <TextView
             android:id="@+id/text_optionb"
@@ -81,23 +77,23 @@
             android:layout_gravity="center"
             android:text="@string/b"
             android:textColor="@color/black">
+
         </TextView>
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:onClick="OptClick"
         android:id="@+id/card_optionc"
-        android:layout_width="250dp"
-        android:layout_height="55dp"
-        android:backgroundTint="#F7F9BF"
-        app:cardCornerRadius="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55"
-        tools:ignore="UsingOnClickInXml">
+        android:layout_width="250sp"
+        android:layout_height="55sp"
+        android:onClick="OptClickc"
+        app:cardCornerRadius="100sp"
+        tools:ignore="UsingOnClickInXml"
+        android:translationY="55sp"
+        android:layout_gravity="center"
+        android:focusable="true"
+        android:clickable="true"
+        >
 
         <TextView
             android:id="@+id/text_optionc"
@@ -108,22 +104,21 @@
             android:textColor="@color/black">
 
         </TextView>
+
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:onClick="OptClick"
         android:id="@+id/card_optiond"
-        android:layout_width="250dp"
-        android:layout_height="55dp"
-        android:backgroundTint="#F7F9BF"
-        app:cardCornerRadius="100dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65"
-        tools:ignore="UsingOnClickInXml">
+        android:layout_width="250sp"
+        android:layout_height="55sp"
+        android:onClick="OptClickd"
+        app:cardCornerRadius="100sp"
+        tools:ignore="UsingOnClickInXml"
+        android:translationY="70sp"
+        android:layout_gravity="center"
+        android:focusable="true"
+        android:clickable="true"
+        >
 
         <TextView
             android:id="@+id/text_optiond"
@@ -132,47 +127,41 @@
             android:layout_gravity="center"
             android:text="@string/d"
             android:textColor="@color/black">
+
         </TextView>
+
     </androidx.cardview.widget.CardView>
 
     <LinearLayout
         android:id="@+id/nextBtn"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
+        android:layout_width="300sp"
+        android:layout_height="50sp"
         android:background="@drawable/next_btn_shape"
         android:backgroundTint="#947EBE"
-        app:layout_constraintBottom_toTopOf="@+id/bg1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/card_optiond"
-        app:layout_constraintVertical_bias="1.0"
-        android:gravity="center">
+        android:gravity="center"
+        android:translationY="110sp"
+        android:layout_gravity="center">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nextto"
-            android:textColor="@color/black"
-            android:textSize="20sp"
             android:layout_gravity="center"
+            android:text="@string/nextto"
             android:textAllCaps="true"
-            >
+            android:textColor="@color/black"
+            android:textSize="20sp">
 
         </TextView>
     </LinearLayout>
 
     <ImageView
         android:id="@+id/bg1"
-        android:layout_width="614dp"
-        android:layout_height="141dp"
+        android:layout_width="620sp"
+        android:layout_height="135sp"
         android:contentDescription="@string/textbg"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        android:translationX="-100sp"
         app:srcCompat="@drawable/dottedbg"
-        tools:ignore="ImageContrastCheck" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        tools:ignore="ImageContrastCheck"
+        android:translationY="123sp"
+        />
+</LinearLayout>
