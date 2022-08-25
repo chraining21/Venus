@@ -52,10 +52,9 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.2.1"
     implementation "androidx.recyclerview:recyclerview-selection:1.1.0"
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
-
     //retrofit資源
     implementation 'com.squareup.retrofit2:retrofit:2.7.2'
     //gson轉換器
     implementation 'com.squareup.retrofit2:converter-gson:2.7.2'
-n
+
 }

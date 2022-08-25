@@ -1,14 +1,36 @@
-package demo.app.venus;
+package demo.app.venus.uploadHelper;
+
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
 public class Ingredient {
+    @SerializedName("name")
+    @Expose
     String ingreName;
+    @SerializedName("irritancy")
+    @Expose
     String irr;
+    @SerializedName("comedogenicity")
+    @Expose
     String com;
+    @SerializedName("tier")
+    @Expose
     String tier;
+    @SerializedName("whatitdoes")
+    @Expose
     List<String> funs;
+    Ingredient(){
 
+    }
+    Ingredient(String name, String irr,String com, String tier,List<String> funs){
+        this.ingreName = name;
+        this.irr = irr;
+        this.com = com;
+        this.tier = tier;
+        this.funs = funs;
+    }
     public String getIngreName() {
         return ingreName;
     }

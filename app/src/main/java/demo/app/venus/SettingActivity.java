@@ -18,30 +18,30 @@ public class SettingActivity extends Activity {
         //觸發'產品清單'
         ((RelativeLayout)findViewById(R.id.listLayout)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                        startActivityForResult(new Intent(SettingActivity.this,TestDbActivity.class), 0);
+                startActivity(new Intent(SettingActivity.this,TestDbActivity.class));
             }
         });
         //觸發'分析成分'
-        /*
+
         ((RelativeLayout)findViewById(R.id.scanLayout)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-
-                startActivityForResult(new Intent(SettingActivity.this,uploadActivity.class), 0);
-
+                Intent intent = new Intent(SettingActivity.this,UploadActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
             }
         });
-         */
+
         //觸發'膚質測驗'
         ((RelativeLayout)findViewById(R.id.skinTestLayout)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                startActivityForResult(new Intent(SettingActivity.this,quiz.class), 0);
+                startActivity(new Intent(SettingActivity.this,quiz.class));
             }
         });
 
         //觸發'使用說明'
         ((RelativeLayout)findViewById(R.id.userGuideLayout)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
-                        startActivityForResult(new Intent(SettingActivity.this,UserGuideActivity.class), 0);
+                startActivity(new Intent(SettingActivity.this,UserGuideActivity.class));
             }
         });
 

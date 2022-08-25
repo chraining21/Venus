@@ -30,11 +30,7 @@ public class ProductDtlEditActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                db.mainDAO().insert(new Products("hihi","haha","2022/1/2","{ww}",1));
-                List<Products> results = db.mainDAO().getAll();
-                bName.setText(results.get(0).getBrandName());
-                pName.setText(results.get(0).getProductName());
-                exp.setText(results.get(0).getExpdate());
+
             }
         });
 
