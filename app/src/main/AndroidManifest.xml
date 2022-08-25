@@ -24,10 +24,20 @@
             android:name=".ProductDtlActivity"
             android:exported="false" />
         <activity
+
+            android:name=".ItemsCreaterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.Venus.NoActionBar"/>
+        <activity
+
             android:name=".ProductDtlEditActivity"
             android:exported="false" />
         <activity
             android:name=".TestDbActivity"
+	    android:exported="false" />
+ 	    <activity
+            android:name=".ListActivity"
+
             android:exported="false" />
         <activity
             android:name=".UserGuideActivity"
@@ -43,6 +53,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".quiz"
+            android:exported="false"
+            android:theme="@style/Theme.Venus.NoActionBar"/>
+        <activity android:name=".testresult" />
+        <activity android:name=".uploadActivity" />
+
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
