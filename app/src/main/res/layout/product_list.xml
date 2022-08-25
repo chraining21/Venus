@@ -44,7 +44,9 @@
                 android:layout_height="match_parent"
                 android:text="2022/05/13"
                 android:textAlignment="center"
-                android:textSize="18dp"></TextView>
+                android:textSize="18dp">
+
+            </TextView>
         </LinearLayout>
     </LinearLayout>
 
