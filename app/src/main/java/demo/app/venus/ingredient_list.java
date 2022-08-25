@@ -1,5 +1,6 @@
 package demo.app.venus;
 
+import android.animation.LayoutTransition;
 import android.app.Activity;
 import android.os.Bundle;
 import android.transition.AutoTransition;
@@ -22,7 +23,7 @@ public void onCreate(Bundle savedInstanceState) {
 
     details = findViewById(R.id.details);
     ingredient = findViewById(R.id.ingredient);
-
+    ingredient.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
     }
 
