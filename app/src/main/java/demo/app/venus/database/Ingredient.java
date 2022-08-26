@@ -1,10 +1,24 @@
 package demo.app.venus.database;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 public class Ingredient {
+    @SerializedName("name")
+    @Expose
     String ingreName;
+    @SerializedName("irritancy")
+    @Expose
     String irr;
+    @SerializedName("comedogenicity")
+    @Expose
     String com;
+    @SerializedName("tier")
+    @Expose
     String tier;
+
     String funs;
     Ingredient(String a, String b, String c, String d, String e){
         this.ingreName = a;

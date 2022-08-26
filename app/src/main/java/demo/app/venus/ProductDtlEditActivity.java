@@ -64,8 +64,10 @@ public class ProductDtlEditActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Products p = new Products(bname.getText().toString(),pname.getText().toString(),pexp.getText().toString(),data,0);
                 db.mainDAO().insert(p);
+
             }
         });
     }
