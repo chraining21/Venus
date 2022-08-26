@@ -35,7 +35,7 @@ public class UploadActivity extends AppCompatActivity {
     ProgressBar bar;
     ActivityResultLauncher<String> photo;
     Retrofit retrofit = new Retrofit.Builder()
-            .baseUrl("http://")
+            .baseUrl("http://163.13.201.83:80")
             .build();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +90,6 @@ public class UploadActivity extends AppCompatActivity {
                     startActivity(intent);
                 }
             }
-
             @Override
             public void onFailure(Call<IngreRes> call, Throwable t) {
                 Toast.makeText(getApplicationContext(), "上傳失敗", Toast.LENGTH_SHORT).show();
