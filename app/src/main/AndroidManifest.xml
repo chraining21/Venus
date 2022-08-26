@@ -21,14 +21,16 @@
         tools:targetApi="31">
         <activity
             android:name=".UploadActivity"
-
             android:exported="false" />
+
         <activity
             android:name=".ProductDtlActivity"
             android:exported="false" />
 
+        <activity
             android:name=".ProductDtlEditActivity"
             android:exported="false" />
+
         <activity
             android:name=".TestDbActivity"
 	    android:exported="false" />
@@ -36,9 +38,11 @@
         <activity
             android:name=".UserGuideActivity"
             android:exported="false" />
+
         <activity
             android:name=".SettingActivity"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true" >
