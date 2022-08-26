@@ -2,7 +2,6 @@ package demo.app.venus;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -54,7 +53,6 @@ public class TestDbActivity extends AppCompatActivity {
         }).start();
         view = findViewById(R.id.recycler);
         view.setLayoutManager(new GridLayoutManager(TestDbActivity.this, 2));
-        view.addItemDecoration(new DividerItemDecoration(TestDbActivity.this, DividerItemDecoration.VERTICAL));
         myListAdapter = new MyListAdapter();
         view.setAdapter(myListAdapter);
         new Thread(new Runnable() {

@@ -3,51 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/drawable/btn_selector.xml" value="0.1" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/drawable/btn_shape.xml" value="0.1" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/drawable/next_btn_shape.xml" value="0.1845" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/drawable/round_bk.xml" value="0.1845" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/drawable/shape.xml" value="0.1" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_items_creater.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_items_taker.xml" value="0.1470713980333476" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_list.xml" value="0.1598173515981735" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_product_dtl.xml" value="0.1470713980333476" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_product_dtl_edit.xml" value="0.1470713980333476" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_quiz.xml" value="0.11949685534591195" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_setting.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_test_db.xml" value="0.1470713980333476" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_testresult.xml" value="0.14074074074074075" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_upload.xml" value="0.1470713980333476" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/activity_user_guide.xml" value="0.1322463768115942" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/item_list.xml" value="0.1470713980333476" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/items_list.xml" value="0.1470713980333476" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/layout/product_list.xml" value="0.1470713980333476" />
-        <entry key="..\:/Users/lan/Documents/GitHub/Venus/app/src/main/res/menu/popup_menu.xml" value="0.14365113296280463" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/drawable/corner_radius.xml" value="0.1685" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/drawable/enter_shape.xml" value="0.103" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/drawable/next_btn_shape.xml" value="0.1675" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_items_creater.xml" value="0.1" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_list.xml" value="0.1157548125633232" />
+        <entry key="..\:/Users/chrai/OneDrive/文件/GitHub/Venus/app/src/main/res/layout/activity_list.xml" value="0.18385416666666668" />
+        <entry key="..\:/Users/chrai/OneDrive/文件/GitHub/Venus/app/src/main/res/layout/activity_product_dtl.xml" value="0.1" />
+        <entry key="..\:/Users/chrai/OneDrive/文件/GitHub/Venus/app/src/main/res/layout/activity_product_dtl_edit.xml" value="0.1" />
+        <entry key="..\:/Users/chrai/OneDrive/文件/GitHub/Venus/app/src/main/res/layout/activity_quiz.xml" value="0.18385416666666668" />
+        <entry key="..\:/Users/chrai/OneDrive/文件/GitHub/Venus/app/src/main/res/layout/ingredient_list.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/chrai/OneDrive/文件/GitHub/Venus/app/src/main/res/layout/product_list.xml" value="0.18385416666666668" />
+        <entry key="..\:/Users/chrai/OneDrive/文件/GitHub/Venus/app/src/main/res/menu/popup_menu.xml" value="0.18385416666666668" />
+        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_home.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_list.xml" value="0.2" />
+        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_listbad.xml" value="0.264" />
+        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_listgood.xml" value="0.22864583333333333" />
         <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_main.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_product_dtl.xml" value="0.21302083333333333" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_product_dtl_edit.xml" value="0.264" />
         <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_question.xml" value="0.1" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_quiz.xml" value="0.23097826086956522" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_setting.xml" value="0.1157548125633232" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_test_db.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_quiz.xml" value="0.264" />
+        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_setting.xml" value="0.152" />
         <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_testresult.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_upload.xml" value="0.264" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_user_guide.xml" value="0.23802083333333332" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/fragment_ingredient_list.xml" value="0.264" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/ingredient_list.xml" value="0.2" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/items_list.xml" value="0.1" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/items_list_detail.xml" value="0.25364583333333335" />
-        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/product_list.xml" value="0.1" />
+        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_upload.xml" value="0.2" />
+        <entry key="..\:/Users/木百/Documents/GitHub/Venus/app/src/main/res/layout/activity_user_guide.xml" value="0.12335359675785208" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

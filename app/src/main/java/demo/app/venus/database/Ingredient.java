@@ -1,14 +1,18 @@
-package demo.app.venus;
-
-import java.util.List;
+package demo.app.venus.database;
 
 public class Ingredient {
     String ingreName;
     String irr;
     String com;
     String tier;
-    List<String> funs;
-
+    String funs;
+    Ingredient(String a, String b, String c, String d, String e){
+        this.ingreName = a;
+        this.irr = b;
+        this.com = c;
+        this.tier = d;
+        this.funs = e;
+    }
     public String getIngreName() {
         return ingreName;
     }
@@ -41,11 +45,11 @@ public class Ingredient {
         this.tier = tier;
     }
 
-    public List<String> getFuns() {
+    public String getFuns() {
         return funs;
     }
 
-    public void setFuns(List<String> funs) {
+    public void setFuns(String funs) {
         this.funs = funs;
     }
 }
