@@ -8,9 +8,6 @@ import android.transition.TransitionManager;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-
 public class ingredient_list extends Activity {
 
     LinearLayout details;
