@@ -41,8 +41,9 @@ tools:context=".MainActivity">
 
     <Button
         android:id="@+id/start"
-        android:layout_width="259dp"
-        android:layout_height="59dp"
+        android:layout_width="260dp"
+        android:layout_height="60dp"
+        android:background="@drawable/next_btn_shape"
         android:backgroundTint="#947EBE"
         android:text="@string/start"
         android:textAllCaps="true"
