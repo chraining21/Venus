@@ -3,7 +3,10 @@ package demo.app.venus.uploadHelper;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
+
+import demo.app.venus.database.Ingredient;
 
 public class IngreRes {
     @SerializedName("status")
@@ -12,8 +15,10 @@ public class IngreRes {
 
     @SerializedName("data")
     @Expose
-    String data;
-
+    List<Ingredient> data;
+    public String toString(){
+        return status+" : "+data.toString();
+    }
     public String getStatus() {
         return status;
     }
@@ -22,11 +27,11 @@ public class IngreRes {
         this.status = status;
     }
 
-    public String getData() {
+    public List<Ingredient> getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(List<Ingredient> data) {
         this.data = data;
     }
 }
