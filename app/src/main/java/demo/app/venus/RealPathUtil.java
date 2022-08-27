@@ -1,5 +1,4 @@
 package demo.app.venus;
-
 import android.annotation.SuppressLint;
 import android.content.ContentUris;
 import android.content.Context;
@@ -12,21 +11,28 @@ import android.provider.MediaStore;
 
 import androidx.loader.content.CursorLoader;
 
+/**
+ * Real Path Utility class for Android.
+ *
+ * Updated by @ImaginativeShohag
+ *
+ * Source: https://gist.github.com/ImaginativeShohag/476a5ba87824f6e036f6bce10e229079
+ */
 public class RealPathUtil {
 
     public static String getRealPath(Context context, Uri fileUri) {
         String realPath;
         // SDK < API11
         if (Build.VERSION.SDK_INT < 11) {
-            realPath = RealPathUtil.getRealPathFromURI_BelowAPI11(context, fileUri);
+            realPath = getRealPathFromURI_BelowAPI11(context, fileUri);
         }
         // SDK >= 11 && SDK < 19
         else if (Build.VERSION.SDK_INT < 19) {
-            realPath = RealPathUtil.getRealPathFromURI_API11to18(context, fileUri);
+            realPath = getRealPathFromURI_API11to18(context, fileUri);
         }
         // SDK > 19 (Android 4.4) and up
         else {
-            realPath = RealPathUtil.getRealPathFromURI_API19(context, fileUri);
+            realPath = getRealPathFromURI_API19(context, fileUri);
         }
         return realPath;
     }
@@ -64,15 +70,6 @@ public class RealPathUtil {
         return result;
     }
 
-    /**
-     * Get a file path from a Uri. This will get the the path for Storage Access
-     * Framework Documents, as well as the _data field for the MediaStore and
-     * other file-based ContentProviders.
-     *
-     * @param context The context.
-     * @param uri     The Uri to query.
-     * @author paulburke
-     */
     @SuppressLint("NewApi")
     public static String getRealPathFromURI_API19(final Context context, final Uri uri) {
 
@@ -86,18 +83,29 @@ public class RealPathUtil {
                 final String[] split = docId.split(":");
                 final String type = split[0];
 
+                // This is for checking Main Memory
                 if ("primary".equalsIgnoreCase(type)) {
-                    return Environment.getExternalStorageDirectory() + "/" + split[1];
+                    if (split.length > 1) {
+                        return Environment.getExternalStorageDirectory() + "/" + split[1];
+                    } else {
+                        return Environment.getExternalStorageDirectory() + "/";
+                    }
+                    // This is for checking SD Card
+                } else {
+                    return "storage" + "/" + docId.replace(":", "/");
                 }
 
             }
             // DownloadsProvider
             else if (isDownloadsDocument(uri)) {
+                String fileName = getFilePath(context, uri);
+                if (fileName != null) {
+                    return Environment.getExternalStorageDirectory().toString() + "/Download/" + fileName;
+                }
 
                 final String id = DocumentsContract.getDocumentId(uri);
                 final Uri contentUri = ContentUris.withAppendedId(
                         Uri.parse("content://downloads/public_downloads"), Long.valueOf(id));
-
                 return getDataColumn(context, contentUri, null, null);
             }
             // MediaProvider
@@ -140,16 +148,6 @@ public class RealPathUtil {
         return null;
     }
 
-    /**
-     * Get the value of the data column for this Uri. This is useful for
-     * MediaStore Uris, and other file-based ContentProviders.
-     *
-     * @param context       The context.
-     * @param uri           The Uri to query.
-     * @param selection     (Optional) Filter used in the query.
-     * @param selectionArgs (Optional) Selection arguments used in the query.
-     * @return The value of the _data column, which is typically a file path.
-     */
     public static String getDataColumn(Context context, Uri uri, String selection,
                                        String[] selectionArgs) {
 
@@ -173,6 +171,27 @@ public class RealPathUtil {
         return null;
     }
 
+
+    public static String getFilePath(Context context, Uri uri) {
+
+        Cursor cursor = null;
+        final String[] projection = {
+                MediaStore.MediaColumns.DISPLAY_NAME
+        };
+
+        try {
+            cursor = context.getContentResolver().query(uri, projection, null, null,
+                    null);
+            if (cursor != null && cursor.moveToFirst()) {
+                final int index = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DISPLAY_NAME);
+                return cursor.getString(index);
+            }
+        } finally {
+            if (cursor != null)
+                cursor.close();
+        }
+        return null;
+    }
 
     /**
      * @param uri The Uri to check.
@@ -205,5 +224,4 @@ public class RealPathUtil {
     public static boolean isGooglePhotosUri(Uri uri) {
         return "com.google.android.apps.photos.content".equals(uri.getAuthority());
     }
-
 }

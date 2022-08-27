@@ -18,15 +18,9 @@ public class Ingredient {
     @SerializedName("tier")
     @Expose
     String tier;
-
-    String funs;
-    Ingredient(String a, String b, String c, String d, String e){
-        this.ingreName = a;
-        this.irr = b;
-        this.com = c;
-        this.tier = d;
-        this.funs = e;
-    }
+    @SerializedName("whatitdoes")
+    @Expose
+    List<String> func;
     public String getIngreName() {
         return ingreName;
     }
@@ -59,11 +53,11 @@ public class Ingredient {
         this.tier = tier;
     }
 
-    public String getFuns() {
-        return funs;
+    public List<String> getFunc() {
+        return func;
     }
 
-    public void setFuns(String funs) {
-        this.funs = funs;
+    public void setFunc(List<String> funs) {
+        this.func = funs;
     }
 }

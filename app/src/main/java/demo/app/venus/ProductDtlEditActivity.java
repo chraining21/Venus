@@ -32,8 +32,9 @@ public class ProductDtlEditActivity extends AppCompatActivity {
     Database db;
     DtlListAdapter myListAdapter;
     RecyclerView view;
-    ArrayList<Ingredient> ingres = new ArrayList<>();
+    List<Ingredient> ingres ;
     String data;
+    String function="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,8 +56,8 @@ public class ProductDtlEditActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                data = getIntent().toString();
-                Gson gson=  new GsonBuilder().create();
+                data = getIntent().getStringExtra("ingrejson");
+                Gson gson=  new Gson();
                 Type collectionType = new TypeToken<List<Ingredient>>() {}.getType();
                 ingres = gson.fromJson(data, collectionType);
             }
@@ -98,9 +99,18 @@ public class ProductDtlEditActivity extends AppCompatActivity {
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             holder.name.setText(ingres.get(position).getIngreName());
-            holder.func.setText(ingres.get(position).getFuns());
-            holder.ingreirr.setText(ingres.get(position).getIngreName());
-            holder.ingrecom.setText(ingres.get(position).getIngreName());
+            for(int i = 0; i<ingres.get(position).getFunc().size();i++){
+                if(i<ingres.get(position).getFunc().size()-1){
+                    function+=ingres.get(position).getFunc().get(i)+", ";
+                }
+                else{
+                    function+=ingres.get(position).getFunc().get(i);
+                }
+            }
+            holder.func.setText(function);
+            function="";
+            holder.ingreirr.setText((ingres.get(position).getIrr().equals(""))?"0":ingres.get(position).getIrr());
+            holder.ingrecom.setText((ingres.get(position).getCom().equals(""))?"0":ingres.get(position).getCom());
             holder.mView.setOnClickListener((v)->{
                 int c = (detail.getVisibility() == View.GONE)? View.VISIBLE : View.GONE;
                 TransitionManager.beginDelayedTransition(ingre,new AutoTransition());

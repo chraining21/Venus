@@ -26,7 +26,6 @@ public class SettingActivity extends Activity {
         ((RelativeLayout)findViewById(R.id.scanLayout)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View v){
                 Intent intent = new Intent(SettingActivity.this,UploadActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
                 startActivity(intent);
             }
         });
