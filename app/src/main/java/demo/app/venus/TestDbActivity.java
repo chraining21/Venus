@@ -32,7 +32,6 @@ import demo.app.venus.database.Products;
 * 之後你們做完我再繞回來做邏輯
 * * */
 public class TestDbActivity extends AppCompatActivity {
-    FloatingActionButton fab_add;
     RecyclerView view;
     MyListAdapter myListAdapter;
     SwipeRefreshLayout swipeRefreshLayout;
@@ -60,14 +59,6 @@ public class TestDbActivity extends AppCompatActivity {
             @Override
             public void run() {
                 makeData();
-                fab_add = findViewById(R.id.floatingButton);
-                fab_add.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(TestDbActivity.this, ProductDtlEditActivity.class);
-                        startActivity(intent);
-                    }
-                });
             }
         }).start();
         view = findViewById(R.id.recycler);
@@ -140,8 +131,9 @@ public class TestDbActivity extends AppCompatActivity {
             holder.pName.setText(arrayList.get(position).getProductName());
             holder.pExp.setText(arrayList.get(position).getExpdate());
 
-            holder.mView.setOnClickListener((v) -> {
-                Intent intent = new Intent(TestDbActivity.this, ProductDtlActivity.class);
+            holder.mView.setOnClickListener((v)->{
+                Intent intent = new Intent(TestDbActivity.this,ProductDtlActivity.class);
+
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("result", arrayList.get(position));
                 intent.putExtras(bundle);
