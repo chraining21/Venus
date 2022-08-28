@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item><layer-list>
+    <item>
+        <layer-list>
         <item>
             <shape>
                 <solid
@@ -18,6 +19,8 @@
             </shape>
         </item>
         <item android:drawable="@drawable/drop_down"
-                android:gravity="right"></item>
-    </layer-list></item>
+                android:gravity="right">
+        </item>
+    </layer-list>
+    </item>
 </selector>

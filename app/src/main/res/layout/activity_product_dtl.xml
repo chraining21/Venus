@@ -22,13 +22,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="175sp"
-            android:text="內容"
+            android:text="@string/txtdetail"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="25sp"
             android:textStyle="bold" />
 
         <Button
+
             android:id="@+id/editbutton"
             android:layout_width="35dp"
             android:layout_height="35dp"
@@ -62,7 +63,7 @@
             android:layout_marginStart="15sp"
             android:layout_marginEnd="20sp"
             android:layout_gravity="center"
-            android:text="品牌名稱"
+            android:text="@string/txtbname"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold">
@@ -96,7 +97,7 @@
             android:layout_marginStart="15sp"
             android:layout_marginEnd="20sp"
             android:layout_gravity="center"
-            android:text="產品名稱"
+            android:text="@string/txtpname"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold">
@@ -129,7 +130,7 @@
             android:layout_marginStart="15sp"
             android:layout_marginEnd="20sp"
             android:layout_gravity="center"
-            android:text="有效日期"
+            android:text="@string/txtpexp"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold">
@@ -190,7 +191,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10sp"
-        android:text="成分表"
+        android:text="@string/txting"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="25sp"
