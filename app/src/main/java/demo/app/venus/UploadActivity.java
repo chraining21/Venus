@@ -19,6 +19,7 @@ import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
+import java.lang.reflect.Type;
 
 import demo.app.venus.uploadHelper.IngreRes;
 import okhttp3.MediaType;
@@ -54,11 +55,16 @@ public class UploadActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    uploadFile(filePath);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                            try {
+                            uploadFile(filePath);
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }).start();
             }
         });
 

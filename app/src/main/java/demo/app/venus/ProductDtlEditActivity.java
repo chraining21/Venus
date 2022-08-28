@@ -19,17 +19,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.List;
 import demo.app.venus.database.Database;
 import demo.app.venus.database.Ingredient;
 import demo.app.venus.database.Products;
 
 public class ProductDtlEditActivity extends AppCompatActivity {
-    EditText bname,pname,pexp;
+    EditText bname,pname,pexp,pkind;
     LinearLayout ingre,detail;
     Button submit;
     Database db;
@@ -37,6 +35,7 @@ public class ProductDtlEditActivity extends AppCompatActivity {
     RecyclerView view;
     List<Ingredient> ingres ;
     String data;
+    Products p;
     String function="";
     Spinner spinner;
 
@@ -53,8 +52,34 @@ public class ProductDtlEditActivity extends AppCompatActivity {
                 pexp = findViewById(R.id.edit_pexp);
                 spinner = findViewById(R.id.spinnerCat);
                 submit = findViewById(R.id.submitbutton);
+                submit.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Products p = new Products(bname.getText().toString(),pname.getText().toString(),pexp.getText().toString(),data,0);
+                        db.mainDAO().insert(p);
+                        if(ProductDtlActivity.productDtlActivity!=null){
+                            ProductDtlActivity.productDtlActivity.finish();
+                        }
+                        finish();
+                    }
+                });
             }
         }).start();
+        data = getIntent().getStringExtra("ingrejson");
+        if(data!=null){
+            Gson gson=  new Gson();
+            Type collectionType = new TypeToken<List<Ingredient>>() {}.getType();
+            ingres = gson.fromJson(data, collectionType);
+        }
+        p =  (Products) getIntent().getSerializableExtra("result");
+        if(p!=null){
+            bname.setText(p.getBrandName());
+            pname.setText(p.getProductName());
+            pexp.setText(p.getExpdate());
+            Gson gson=  new Gson();
+            Type collectionType = new TypeToken<List<Ingredient>>() {}.getType();
+            ingres = gson.fromJson(p.getIngreJson(), collectionType);
+        }
         db = Database.getInstance(this);
         view = findViewById(R.id.recycler_ingre);
         view.setLayoutManager(new LinearLayoutManager(ProductDtlEditActivity.this));
@@ -85,6 +110,7 @@ public class ProductDtlEditActivity extends AppCompatActivity {
 
             }
         });
+
     }
     private class DtlListAdapter extends RecyclerView.Adapter<DtlListAdapter.ViewHolder>{
         class ViewHolder extends RecyclerView.ViewHolder{
