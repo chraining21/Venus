@@ -169,13 +169,19 @@
                 android:textStyle="bold">
 
             </TextView>
+            <TextView
+                android:id="@+id/kind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5sp"
+                android:background="@drawable/next_btn_shape"
+                android:ems="10"
+                android:minHeight="50sp"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_marginLeft="20sp"/>
 
-            <Spinner
-                android:id="@+id/spinnerCat"
-                android:layout_width="228dp"
-                android:layout_height="50dp"
-                android:layout_marginLeft="23sp"
-             android:background="@drawable/spinner_bk" />
         </LinearLayout>
 
     <LinearLayout

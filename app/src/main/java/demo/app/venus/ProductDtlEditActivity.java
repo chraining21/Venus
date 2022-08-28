@@ -27,7 +27,7 @@ import demo.app.venus.database.Ingredient;
 import demo.app.venus.database.Products;
 
 public class ProductDtlEditActivity extends AppCompatActivity {
-    EditText bname,pname,pexp,pkind;
+    EditText bname,pname,pexp;
     LinearLayout ingre,detail;
     Button submit;
     Database db;
@@ -38,7 +38,7 @@ public class ProductDtlEditActivity extends AppCompatActivity {
     Products p;
     String function="";
     Spinner spinner;
-
+    int pkind=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,7 +55,7 @@ public class ProductDtlEditActivity extends AppCompatActivity {
                 submit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Products p = new Products(bname.getText().toString(),pname.getText().toString(),pexp.getText().toString(),data,0);
+                        Products p = new Products(bname.getText().toString(),pname.getText().toString(),pexp.getText().toString(),data,pkind);
                         db.mainDAO().insert(p);
                         if(ProductDtlActivity.productDtlActivity!=null){
                             ProductDtlActivity.productDtlActivity.finish();
@@ -104,10 +104,12 @@ public class ProductDtlEditActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Products p = new Products(bname.getText().toString(),pname.getText().toString(),pexp.getText().toString(),data, 0);
                 db.mainDAO().insert(p);
-
+                if(ProductDtlActivity.productDtlActivity!=null){
+                    ProductDtlActivity.productDtlActivity.finish();
+                }
+                finish();
             }
         });
 
@@ -167,15 +169,18 @@ public class ProductDtlEditActivity extends AppCompatActivity {
             = new AdapterView.OnItemSelectedListener() {
         public void onItemSelected(AdapterView<?> parent, View view,
                                    int pos, long id) {
-            String sPos = String.valueOf(pos);
-//            String sInfo=parent.getItemAtPosition(pos).toString();
-            if(sPos.equals(0)){
-
+            if(pos==0){
+                pkind = 0;
             }
-
+            if(pos==1){
+                pkind = 1;
+            }
+            if(pos==2){
+                pkind = 2;
+            }
         }
         public void onNothingSelected(AdapterView<?> parent) {
-            //
+            pkind = 0;
         }
     };
 }

@@ -83,4 +83,12 @@ public class Products implements Serializable {
     public void setIngreJson(String ingreJson) {
         this.ingreJson = ingreJson;
     }
+
+    public int getKind() {
+        return kind;
+    }
+
+    public void setKind(int kind) {
+        this.kind = kind;
+    }
 }

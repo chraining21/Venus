@@ -32,7 +32,7 @@ import demo.app.venus.database.Ingredient;
 import demo.app.venus.database.Products;
 
 public class ProductDtlActivity extends AppCompatActivity {
-    TextView bName,pName,exp;
+    TextView bName,pName,exp, kind;
     Database database;
     Products p;
     DtlListAdapter myListAdapter;
@@ -68,9 +68,11 @@ public class ProductDtlActivity extends AppCompatActivity {
                 exp = findViewById(R.id.pexp);
                 trash = findViewById(R.id.trashbutton);
                 edit = findViewById(R.id.editbutton);
+                kind = findViewById(R.id.kind);
                 bName.setText(p.getBrandName());
                 pName.setText(p.getProductName());
                 exp.setText(p.getExpdate());
+                kind.setText(String.valueOf(p.getKind()));
                 edit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
