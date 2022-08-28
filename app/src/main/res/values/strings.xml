@@ -34,5 +34,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="save">save</string>
+    <string-array name="kind_array">
+        <item>我的保養品</item>
+        <item>蜜糖</item>
+        <item>毒藥</item>
+    </string-array>
 </resources>
 
