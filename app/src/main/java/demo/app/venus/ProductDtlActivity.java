@@ -2,31 +2,25 @@ package demo.app.venus;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.animation.LayoutTransition;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.transition.AutoTransition;
 import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-
 import java.lang.reflect.Type;
 import java.util.List;
-
-import demo.app.venus.database.Database;
 import demo.app.venus.database.Database;
 import demo.app.venus.database.Ingredient;
 import demo.app.venus.database.Products;
@@ -72,7 +66,17 @@ public class ProductDtlActivity extends AppCompatActivity {
                 bName.setText(p.getBrandName());
                 pName.setText(p.getProductName());
                 exp.setText(p.getExpdate());
-                kind.setText(String.valueOf(p.getKind()));
+                switch (p.getKind()){
+                    case 0:
+                        kind.setText("我的保養品");
+                        break;
+                    case 1:
+                        kind.setText("蜜糖");
+                        break;
+                    case 2:
+                        kind.setText("毒藥");
+                        break;
+                }
                 edit.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -97,6 +101,7 @@ public class ProductDtlActivity extends AppCompatActivity {
         class ViewHolder extends RecyclerView.ViewHolder{
             private TextView name,func,ingrecom,ingreirr;
             private View mView;
+            private CardView bg;
 
             public ViewHolder(@NonNull View itemView) {
                 super(itemView);
@@ -107,7 +112,7 @@ public class ProductDtlActivity extends AppCompatActivity {
                 ingre = itemView.findViewById(R.id.ingredient);
                 detail = itemView.findViewById(R.id.details);
                 mView  = itemView;
-                ingre.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
+                bg = itemView.findViewById(R.id.ingreContainer);
             }
         }
         @NonNull
@@ -130,13 +135,14 @@ public class ProductDtlActivity extends AppCompatActivity {
             }
             holder.func.setText(function);
             function="";
-            holder.ingreirr.setText((ingres.get(position).getIrr().equals(""))?"0":ingres.get(position).getIrr());
-            holder.ingrecom.setText((ingres.get(position).getCom().equals(""))?"0":ingres.get(position).getCom());
-            holder.mView.setOnClickListener((v)->{
-                int c = (detail.getVisibility() == View.GONE)? View.VISIBLE : View.GONE;
-                TransitionManager.beginDelayedTransition(ingre,new AutoTransition());
-                detail.setVisibility(c);
-            });
+            holder.ingreirr.setText((ingres.get(position).getIrr()==null||ingres.get(position).getIrr().equals(""))?"0":ingres.get(position).getIrr());
+            holder.ingrecom.setText((ingres.get(position).getIrr()==null||ingres.get(position).getCom().equals(""))?"0":ingres.get(position).getCom());
+            String temp1 = holder.ingreirr.getText().toString();
+            String temp2 = holder.ingrecom.getText().toString();
+            if(temp1.contains("3")||temp1.contains("4")||temp1.contains("5")){holder.bg.setCardBackgroundColor(getResources().getColor(R.color.er));}
+            else{
+                if(temp2.contains("3")||temp2.contains("4")||temp2.contains("5")){holder.bg.setCardBackgroundColor(getResources().getColor(R.color.er));}
+            }
         }
         @Override
         public int getItemCount() {

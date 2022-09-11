@@ -36,6 +36,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="保濕乳液"
+                android:textColor="@color/black"
                 android:textAlignment="center"
                 android:textSize="18sp" />
 
@@ -45,6 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="2022/05/13"
+                android:textColor="@color/black"
                 android:textAlignment="center"
                 android:textSize="18dp">
 

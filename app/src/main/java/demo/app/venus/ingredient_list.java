@@ -23,14 +23,5 @@ public void onCreate(Bundle savedInstanceState) {
     ingredient.getLayoutTransition().enableTransitionType(LayoutTransition.CHANGING);
 
     }
-
-
-
-    public void expand(View view){
-        int v = (details.getVisibility() == View.GONE)? View.VISIBLE : View.GONE;
-
-        TransitionManager.beginDelayedTransition(ingredient,new AutoTransition());
-        details.setVisibility(v);
-    }
 }
 

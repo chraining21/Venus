@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,61 +9,60 @@
     android:orientation="vertical"
     tools:context=".UploadActivity">
 
+
     <ImageView
         android:id="@+id/upimage"
         android:layout_width="237dp"
         android:layout_height="205dp"
-        android:layout_marginTop="66dp"
-        android:layout_gravity="center"
-        tools:src="@tools:sample/avatars" />
+        android:layout_marginTop="78dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:text="請將圖片裁減至只有成分的部分!"
+        android:textAlignment="center"
+        android:textColor="#C63838"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/upimage" />
 
     <Button
         android:id="@+id/selectpic"
         android:layout_width="260dp"
         android:layout_height="60dp"
-        android:layout_marginTop="85dp"
-        android:layout_gravity="center"
+        android:layout_marginTop="51dp"
+        android:background="@drawable/next_btn_shape"
+        android:backgroundTint="#947EBE"
         android:text="選取照片"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:background="@drawable/next_btn_shape"
-        android:backgroundTint="#947EBE"
-        />
-
-    <Button
-        android:id="@+id/editpic"
-        android:layout_width="260dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="40dp"
-        android:layout_gravity="center"
-        android:text="編輯照片"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:background="@drawable/next_btn_shape"
-        android:backgroundTint="#947EBE"/>
-
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
     <Button
         android:id="@+id/submitpic"
         android:layout_width="260dp"
         android:layout_height="60dp"
-        android:layout_marginTop="40dp"
-        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/next_btn_shape"
+        android:backgroundTint="#947EBE"
         android:text="上傳照片"
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:background="@drawable/next_btn_shape"
-        android:backgroundTint="#947EBE"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectpic" />
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="invisible" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

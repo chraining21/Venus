@@ -11,56 +11,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
+import java.util.Arrays;
+
 import demo.app.venus.database.Database;
 import demo.app.venus.database.Products;
-/*DBclassproductList
-* 應該不用動 拿掉floatingButton及更改xml(請記得id)即可
-*
-* 希望可以拿掉appbar 變成toolbar(只有在dtl相關頁面可以看見bar)
-* product_list為card物件的xml要改一格一格請去那邊改
-* activity_product_dtl為顯示內容的頁面(可以在appbar上新增edit按鈕)
-* activity_product_dtl_edit為編輯內容的頁面(可以在appbar新增save按鈕並退出頁面)
-* 程式邏輯請先不要更改(除了增加按鈕的方法)
-* 之後你們做完我再繞回來做邏輯
-* * */
+
 public class TestDbActivity extends AppCompatActivity {
     RecyclerView view;
     MyListAdapter myListAdapter;
     SwipeRefreshLayout swipeRefreshLayout;
     ArrayList<Products> arrayList = new ArrayList<>();
     Database database;
-
-
+    Spinner spinner;
+    public static final String [] mData ={"我的保養品","蜜糖","毒藥"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         database = Database.getInstance(this);
         setContentView(R.layout.activity_test_db);
-
-
-        Spinner spinner = (Spinner) findViewById(R.id.spinnerCat);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.kind_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setSelection(2, false);
-        spinner.setOnItemSelectedListener(spnOnItemSelected);
-
-
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                makeData();
-            }
-        }).start();
+        makeData(0);
         view = findViewById(R.id.recycler);
         view.setLayoutManager(new GridLayoutManager(TestDbActivity.this, 2));
         myListAdapter = new MyListAdapter();
@@ -71,38 +43,62 @@ public class TestDbActivity extends AppCompatActivity {
                 swipeRefreshLayout = findViewById(R.id.refreshLayout);
                 swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.yellow));
                 swipeRefreshLayout.setOnRefreshListener(() -> {
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            arrayList.clear();
-                            makeData();
-                            myListAdapter.notifyDataSetChanged();
-                            swipeRefreshLayout.setRefreshing(false);
-                        }
-                    }).start();
+                    arrayList.clear();
+                    spinner.setSelection(0);
+                    makeData(0);
+                    myListAdapter.notifyDataSetChanged();
+                    swipeRefreshLayout.setRefreshing(false);
                 });
             }
         }).start();
-        //下拉刷新
+        setup();
     }
+    private void setup(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                spinner= findViewById(R.id.spinnerCat);
+                Adapter mAdapter = new Adapter(TestDbActivity.this, Arrays.asList(mData));
+                spinner.setAdapter(mAdapter);
+                spinner.setSelection(0, false);
+                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    public void onItemSelected(AdapterView<?> parent, View view,
+                                               int pos, long id) {
+                        if(pos == 0){
+                            arrayList.clear();
+                            makeData(pos);
+                            myListAdapter.notifyDataSetChanged();
+                        }
+                        if(pos == 1){
+                            arrayList.clear();
+                            makeData(pos);
+                            myListAdapter.notifyDataSetChanged();
+                        }
+                        if(pos == 2){
+                            arrayList.clear();
+                            makeData(pos);
+                            myListAdapter.notifyDataSetChanged();
+                        }
 
-    private AdapterView.OnItemSelectedListener spnOnItemSelected
-            = new AdapterView.OnItemSelectedListener() {
-        public void onItemSelected(AdapterView<?> parent, View view,
-                                   int pos, long id) {
-            String sPos=String.valueOf(pos);
-            String sInfo=parent.getItemAtPosition(pos).toString();
-        }
-        public void onNothingSelected(AdapterView<?> parent) {
-            //
-        }
-    };
+                    }
+                    public void onNothingSelected(AdapterView<?> parent) {}
+                });
 
-    private void makeData() {
-            arrayList.addAll(database.mainDAO().getAll());
+            }
+        }).start();
+    }
+    private void makeData(int kind) {
+        if(kind == 0){
+            arrayList.addAll(database.mainDAO().getNormal());
+        }
+        if(kind ==1){
+            arrayList.addAll(database.mainDAO().getHoney());
+        }
+        if(kind ==2){
+            arrayList.addAll(database.mainDAO().getToxic());
+        }
 
     }
-
     private class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder> {
         class ViewHolder extends RecyclerView.ViewHolder {
             private TextView brandName, pName, pExp;
@@ -116,7 +112,6 @@ public class TestDbActivity extends AppCompatActivity {
                 mView = itemView;
             }
         }
-
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -124,23 +119,20 @@ public class TestDbActivity extends AppCompatActivity {
                     .inflate(R.layout.product_list, parent, false);
             return new ViewHolder(view);
         }
-
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             holder.brandName.setText(arrayList.get(position).getBrandName());
             holder.pName.setText(arrayList.get(position).getProductName());
             holder.pExp.setText(arrayList.get(position).getExpdate());
-
             holder.mView.setOnClickListener((v)->{
                 Intent intent = new Intent(TestDbActivity.this,ProductDtlActivity.class);
-
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("result", arrayList.get(position));
                 intent.putExtras(bundle);
                 startActivity(intent);
             });
-        }
 
+        }
         @Override
         public int getItemCount() {
             return arrayList.size();

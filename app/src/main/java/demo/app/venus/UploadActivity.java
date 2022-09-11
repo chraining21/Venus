@@ -1,5 +1,9 @@
 package demo.app.venus;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -18,9 +22,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.Serializable;
-import java.lang.reflect.Type;
-
 import demo.app.venus.uploadHelper.IngreRes;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
@@ -34,11 +35,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class UploadActivity extends AppCompatActivity {
     Bitmap bitmap;
     String filePath;
-    Button select, submit, edit;
+    Button select, submit;
     ImageView pic;
-
-    int SELECT_PICTURE = 200;
-
+    public static UploadActivity uploadActivity;
+    ActivityResultLauncher<String> cropImage;
+    Dialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,55 +50,58 @@ public class UploadActivity extends AppCompatActivity {
         select.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                imageChooser();
+                cropImage.launch("image/*");
+            }
+        });
+        cropImage = registerForActivityResult(new ActivityResultContracts.GetContent(), new ActivityResultCallback<Uri>() {
+            @Override
+            public void onActivityResult(Uri result) {
+                Intent intent = new Intent(UploadActivity.this,CropActivity.class);
+                intent.putExtra("DATA",result.toString());
+                startActivityForResult(intent,101);
             }
         });
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            try {
-                            uploadFile(filePath);
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }).start();
+                try {
+                    dialog = new Dialog(UploadActivity.this);
+                    dialog.startDialog();
+                    uploadFile(filePath);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         });
-
+        uploadActivity=this;
     }
 
-    public void imageChooser() {
-        Intent i = new Intent();
-        i.setType("image/*");
-        i.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(i, "Select Picture"), SELECT_PICTURE);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode==-1 && requestCode==101){
+            String re = data.getStringExtra("RESULT");
+            Uri reUri = null;
+            if(re != null){
+                reUri = Uri.parse(re);
+            }
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),reUri);
+                pic.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
+
     private String convertToString()
     {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArrayOutputStream);
         byte[] imgByte = byteArrayOutputStream.toByteArray();
         return Base64.encodeToString(imgByte,Base64.DEFAULT);
-    }
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode == RESULT_OK) {
-            if (requestCode == SELECT_PICTURE) {
-                Uri selectedImageUri = data.getData();
-                if (null != selectedImageUri) {
-                    try {
-                        bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(),selectedImageUri);
-                        pic.setImageBitmap(bitmap);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
     }
 
     private void uploadFile(String fileUri) throws JSONException {
@@ -116,18 +120,20 @@ public class UploadActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<IngreRes> call, Response<IngreRes> response) {
                 if (response.isSuccessful()) {
+                    dialog.dismiss();
                     Gson g = new Gson();
                     Intent intent = new Intent(UploadActivity.this,ProductDtlEditActivity.class);
                     intent.putExtra("ingrejson",  g.toJson(response.body().getData()));
                     startActivity(intent);
                 } else {
+                    dialog.dismiss();
                     Toast.makeText(getApplicationContext(), "Some error occurred...", Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(Call<IngreRes> call, Throwable t) {
-                System.out.println(t.getMessage());
+                dialog.dismiss();
                 Toast.makeText(getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
             }
         });

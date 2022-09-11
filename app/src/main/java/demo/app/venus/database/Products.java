@@ -91,4 +91,16 @@ public class Products implements Serializable {
     public void setKind(int kind) {
         this.kind = kind;
     }
+
+    @Override
+    public String toString() {
+        return "Products{" +
+                "id=" + id +
+                ", brandName='" + brandName + '\'' +
+                ", productName='" + productName + '\'' +
+                ", expdate='" + expdate + '\'' +
+                ", ingreJson='" + ingreJson + '\'' +
+                ", kind=" + kind +
+                '}';
+    }
 }

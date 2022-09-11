@@ -17,6 +17,15 @@ public interface MainDAO {
     @Query("SELECT * FROM Products ORDER BY id DESC")
     List<Products> getAll();
 
+    @Query("SELECT * FROM Products WHERE Kind = 0 ORDER BY id DESC")
+    List<Products> getNormal();
+
+    @Query("SELECT * FROM Products WHERE Kind = 1 ORDER BY id DESC")
+    List<Products> getHoney();
+
+    @Query("SELECT * FROM Products WHERE Kind = 2 ORDER BY id DESC")
+    List<Products> getToxic();
+
     @Delete
     void delete(Products p);
 
