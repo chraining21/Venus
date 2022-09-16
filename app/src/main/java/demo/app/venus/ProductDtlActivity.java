@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 import demo.app.venus.database.Database;
 import demo.app.venus.database.Ingredient;
@@ -32,7 +33,8 @@ public class ProductDtlActivity extends AppCompatActivity {
     DtlListAdapter myListAdapter;
     Button trash,edit;
     RecyclerView view;
-    LinearLayout ingre,detail;
+    ArrayList<Integer> temp = new ArrayList<>();
+    ArrayList<Integer> temp2 = new ArrayList<>();
     List<Ingredient> ingres ;
     String function="";
     public static ProductDtlActivity productDtlActivity;
@@ -45,6 +47,19 @@ public class ProductDtlActivity extends AppCompatActivity {
         Gson gson=  new Gson();
         Type collectionType = new TypeToken<List<Ingredient>>() {}.getType();
         ingres = gson.fromJson(p.getIngreJson(), collectionType);
+        int count = 0;
+        for(Ingredient i :ingres){
+            if(i.getTier().equals("icky")||i.getTier().equals("Icky")){
+                temp2.add(count);
+            }
+            else if(i.getIrr().contains("3")||i.getIrr().contains("4")||i.getIrr().contains("5")){
+                temp.add(count);
+            }
+            else if(i.getCom().contains("3")||i.getCom().contains("4")||i.getCom().contains("5")){
+                temp.add(count);
+            }
+            count+=1;
+        }
         view = findViewById(R.id.recycler_ingre);
         view.setLayoutManager(new LinearLayoutManager(ProductDtlActivity.this));
         myListAdapter = new DtlListAdapter();
@@ -76,6 +91,9 @@ public class ProductDtlActivity extends AppCompatActivity {
                     case 2:
                         kind.setText("毒藥");
                         break;
+                    case 3:
+                        kind.setText("願望清單");
+                        break;
                 }
                 edit.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -99,8 +117,7 @@ public class ProductDtlActivity extends AppCompatActivity {
     }
     private class DtlListAdapter extends RecyclerView.Adapter<DtlListAdapter.ViewHolder>{
         class ViewHolder extends RecyclerView.ViewHolder{
-            private TextView name,func,ingrecom,ingreirr;
-            private View mView;
+            private TextView name,func,ingrecom,ingreirr,text_com,text_irr;
             private CardView bg;
 
             public ViewHolder(@NonNull View itemView) {
@@ -109,9 +126,8 @@ public class ProductDtlActivity extends AppCompatActivity {
                 func = itemView.findViewById(R.id.ingrefunction);
                 ingreirr = itemView.findViewById(R.id.num_com);
                 ingrecom = itemView.findViewById(R.id.num_irr);
-                ingre = itemView.findViewById(R.id.ingredient);
-                detail = itemView.findViewById(R.id.details);
-                mView  = itemView;
+                text_com = itemView.findViewById(R.id.text_com);
+                text_irr = itemView.findViewById(R.id.text_irr);
                 bg = itemView.findViewById(R.id.ingreContainer);
             }
         }
@@ -135,14 +151,49 @@ public class ProductDtlActivity extends AppCompatActivity {
             }
             holder.func.setText(function);
             function="";
-            holder.ingreirr.setText((ingres.get(position).getIrr()==null||ingres.get(position).getIrr().equals(""))?"0":ingres.get(position).getIrr());
-            holder.ingrecom.setText((ingres.get(position).getIrr()==null||ingres.get(position).getCom().equals(""))?"0":ingres.get(position).getCom());
-            String temp1 = holder.ingreirr.getText().toString();
-            String temp2 = holder.ingrecom.getText().toString();
-            if(temp1.contains("3")||temp1.contains("4")||temp1.contains("5")){holder.bg.setCardBackgroundColor(getResources().getColor(R.color.er));}
-            else{
-                if(temp2.contains("3")||temp2.contains("4")||temp2.contains("5")){holder.bg.setCardBackgroundColor(getResources().getColor(R.color.er));}
+            holder.ingreirr.setText(ingres.get(position).getIrr());
+            holder.ingrecom.setText(ingres.get(position).getCom());
+            for(int i:temp){
+                if(position==i){
+                    holder.text_irr.setTextColor(getResources().getColor(R.color.white));
+                    holder.text_com.setTextColor(getResources().getColor(R.color.white));
+                    holder.bg.setCardBackgroundColor(getResources().getColor(R.color.er));
+                    holder.name.setTextColor(getResources().getColor(R.color.white));
+                    holder.func.setTextColor(getResources().getColor(R.color.white));
+                    holder.ingreirr.setTextColor(getResources().getColor(R.color.white));
+                    holder.ingrecom.setTextColor(getResources().getColor(R.color.white));
+                }
+                else{
+                    holder.text_irr.setTextColor(getResources().getColor(R.color.black));
+                    holder.text_com.setTextColor(getResources().getColor(R.color.black));
+                    holder.bg.setCardBackgroundColor(getResources().getColor(R.color.yellow));
+                    holder.name.setTextColor(getResources().getColor(R.color.black));
+                    holder.func.setTextColor(getResources().getColor(R.color.black));
+                    holder.ingreirr.setTextColor(getResources().getColor(R.color.black));
+                    holder.ingrecom.setTextColor(getResources().getColor(R.color.black));
+                }
             }
+            for(int i :temp2){
+                if(position==i){
+                    holder.text_irr.setTextColor(getResources().getColor(R.color.white));
+                    holder.text_com.setTextColor(getResources().getColor(R.color.white));
+                    holder.bg.setCardBackgroundColor(getResources().getColor(R.color.er2));
+                    holder.name.setTextColor(getResources().getColor(R.color.white));
+                    holder.func.setTextColor(getResources().getColor(R.color.white));
+                    holder.ingreirr.setTextColor(getResources().getColor(R.color.white));
+                    holder.ingrecom.setTextColor(getResources().getColor(R.color.white));
+                }
+                else{
+                    holder.text_irr.setTextColor(getResources().getColor(R.color.black));
+                    holder.text_com.setTextColor(getResources().getColor(R.color.black));
+                    holder.bg.setCardBackgroundColor(getResources().getColor(R.color.yellow));
+                    holder.name.setTextColor(getResources().getColor(R.color.black));
+                    holder.func.setTextColor(getResources().getColor(R.color.black));
+                    holder.ingreirr.setTextColor(getResources().getColor(R.color.black));
+                    holder.ingrecom.setTextColor(getResources().getColor(R.color.black));
+                }
+            }
+
         }
         @Override
         public int getItemCount() {

@@ -11,11 +11,13 @@ import android.os.Bundle;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 
 import org.json.JSONException;
@@ -67,7 +69,7 @@ public class UploadActivity extends AppCompatActivity {
                 try {
                     dialog = new Dialog(UploadActivity.this);
                     dialog.startDialog();
-                    uploadFile(filePath);
+                    uploadFile();
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -104,7 +106,7 @@ public class UploadActivity extends AppCompatActivity {
         return Base64.encodeToString(imgByte,Base64.DEFAULT);
     }
 
-    private void uploadFile(String fileUri) throws JSONException {
+    private void uploadFile() throws JSONException {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://163.13.201.83:80")
@@ -127,7 +129,18 @@ public class UploadActivity extends AppCompatActivity {
                     startActivity(intent);
                 } else {
                     dialog.dismiss();
-                    Toast.makeText(getApplicationContext(), "Some error occurred...", Toast.LENGTH_LONG).show();
+                    Snackbar.make(findViewById(R.id.uploadLayout),"Some Error Occur...",Snackbar.LENGTH_LONG)
+                        .setAction("Retry", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                try {
+                                    uploadFile();
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        })
+                        .show();
                 }
             }
 
