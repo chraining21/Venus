@@ -10,9 +10,9 @@
 
     <EditText
         android:id="@+id/search"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_width="312dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/enter_shape"
         android:ems="10"
         android:hint="請輸入想搜尋的保養品"
@@ -24,18 +24,17 @@
         android:textColor="#4F3A73"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinnerCat"
-        android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_width="311dp"
+        android:layout_height="47dp"
         android:layout_margin="15dp"
-        android:layout_marginTop="24dp"
         android:background="@drawable/spinner_bk"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.633"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search"
         tools:ignore="SpeakableTextPresentCheck" />

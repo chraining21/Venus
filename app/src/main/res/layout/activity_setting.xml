@@ -50,7 +50,7 @@
                 android:layout_width="171dp"
                 android:layout_height="47dp"
                 android:layout_marginStart="30sp"
-                android:layout_marginTop="50sp"
+                android:layout_marginTop="45sp"
                 android:layout_marginEnd="30sp"
                 android:text="@string/have_a_nice_day_with_venus"
                 android:textColor="#000000"
