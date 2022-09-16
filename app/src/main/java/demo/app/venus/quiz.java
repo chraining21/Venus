@@ -2,12 +2,13 @@ package demo.app.venus;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 
 public class quiz extends Activity implements View.OnClickListener{
@@ -105,15 +106,14 @@ public class quiz extends Activity implements View.OnClickListener{
         } else{
             skinStatus="油性膚質";
         }
-
-
-        new AlertDialog.Builder(this)
-                .setTitle("檢測結果")
-                .setMessage(skinStatus)
-                .setIcon(R.drawable.neutral)
-                .setPositiveButton("再測一次",(dialogInterface, i) -> restartQuiz() )
-                .setCancelable(false)
-                .show();
+        
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("檢測結果");
+        alertDialog.setMessage(skinStatus);
+        alertDialog.setIcon(R.drawable.neutral);
+        alertDialog.setPositiveButton("再測一次",(dialogInterface, i) -> restartQuiz());
+        alertDialog.setCancelable(false);
+        alertDialog.show();
 
     }
 

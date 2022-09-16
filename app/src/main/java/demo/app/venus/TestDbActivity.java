@@ -7,10 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import java.util.ArrayList;
@@ -26,7 +29,9 @@ public class TestDbActivity extends AppCompatActivity {
     ArrayList<Products> arrayList = new ArrayList<>();
     Database database;
     Spinner spinner;
-    public static final String [] mData ={"我的保養品","蜜糖","毒藥"};
+    EditText search;
+    int pkind = 0;
+    public static final String [] mData ={"我的保養品","蜜糖","毒藥","購買清單"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,8 +49,8 @@ public class TestDbActivity extends AppCompatActivity {
                 swipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.yellow));
                 swipeRefreshLayout.setOnRefreshListener(() -> {
                     arrayList.clear();
-                    spinner.setSelection(0);
-                    makeData(0);
+                    spinner.setSelection(pkind);
+                    makeData(pkind);
                     myListAdapter.notifyDataSetChanged();
                     swipeRefreshLayout.setRefreshing(false);
                 });
@@ -57,6 +62,19 @@ public class TestDbActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
+                search = findViewById(R.id.search);
+                search.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                    @Override
+                    public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                        if(i == EditorInfo.IME_ACTION_SEARCH){
+                            arrayList.clear();
+                            arrayList.addAll(database.mainDAO().getQuery(pkind,search.getText().toString()));
+                            myListAdapter.notifyDataSetChanged();
+                            search.setText("");
+                        }
+                        return false;
+                    }
+                });
                 spinner= findViewById(R.id.spinnerCat);
                 Adapter mAdapter = new Adapter(TestDbActivity.this, Arrays.asList(mData));
                 spinner.setAdapter(mAdapter);
@@ -65,16 +83,25 @@ public class TestDbActivity extends AppCompatActivity {
                     public void onItemSelected(AdapterView<?> parent, View view,
                                                int pos, long id) {
                         if(pos == 0){
+                            pkind = pos;
                             arrayList.clear();
                             makeData(pos);
                             myListAdapter.notifyDataSetChanged();
                         }
                         if(pos == 1){
+                            pkind = pos;
                             arrayList.clear();
                             makeData(pos);
                             myListAdapter.notifyDataSetChanged();
                         }
                         if(pos == 2){
+                            pkind = pos;
+                            arrayList.clear();
+                            makeData(pos);
+                            myListAdapter.notifyDataSetChanged();
+                        }
+                        if(pos == 3){
+                            pkind = pos;
                             arrayList.clear();
                             makeData(pos);
                             myListAdapter.notifyDataSetChanged();
@@ -97,7 +124,9 @@ public class TestDbActivity extends AppCompatActivity {
         if(kind ==2){
             arrayList.addAll(database.mainDAO().getToxic());
         }
-
+        if(kind ==3){
+            arrayList.addAll(database.mainDAO().getBuy());
+        }
     }
     private class MyListAdapter extends RecyclerView.Adapter<MyListAdapter.ViewHolder> {
         class ViewHolder extends RecyclerView.ViewHolder {

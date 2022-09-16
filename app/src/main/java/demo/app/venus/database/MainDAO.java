@@ -14,8 +14,8 @@ public interface MainDAO {
     @Insert(onConflict = REPLACE)
     void insert(Products p);
 
-    @Query("SELECT * FROM Products ORDER BY id DESC")
-    List<Products> getAll();
+    @Query("SELECT * FROM Products WHERE kind = :kind AND brandName = :brand ORDER BY id DESC")
+    List<Products> getQuery(int kind,String brand);
 
     @Query("SELECT * FROM Products WHERE Kind = 0 ORDER BY id DESC")
     List<Products> getNormal();
@@ -25,6 +25,9 @@ public interface MainDAO {
 
     @Query("SELECT * FROM Products WHERE Kind = 2 ORDER BY id DESC")
     List<Products> getToxic();
+
+    @Query("SELECT * FROM Products WHERE Kind = 3 ORDER BY id DESC")
+    List<Products> getBuy();
 
     @Delete
     void delete(Products p);
